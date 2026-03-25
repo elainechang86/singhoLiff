@@ -11,131 +11,77 @@
 
     <script>
         async function main() {
-            // 初始化 LIFF，請替換成你的 LIFF ID
-            await liff.init({ liffId: "2005077517-HhZbspDL" });
+    await liff.init({ liffId: "2005077517-HhZbspDL" });
 
-            document.getElementById('sendBtn').addEventListener('click', () => {
-                if (!liff.isLoggedIn()) {
-                    liff.login();
-                } else {
-                    // 呼叫好友選取器
-                    liff.shareTargetPicker([
-                        {
-  "type": "bubble",
-  "hero": {
-    "type": "image",
-    "url": "https://nemo-iching.com/wp-content/uploads/2026/03/螢幕擷取畫面_2026-03-01_013519-removebg-preview.png",
-    "size": "full",
-    "aspectRatio": "20:13",
-    "aspectMode": "fit",
-    "action": {
-      "type": "uri",
-      "uri": "https://line.me/"
-    }
-  },
-  "body": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "text",
-        "text": "千慧姐姐說你好",
-        "weight": "bold",
-        "size": "xl"
-      },
-      {
-        "type": "box",
-        "layout": "vertical",
-        "margin": "lg",
-        "spacing": "sm",
-        "contents": [
-          {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "聯絡時間",
-                "color": "#aaaaaa",
-                "size": "sm",
-                "flex": 2
-              },
-              {
-                "type": "text",
-                "text": "週一至週五 9:00-18:00",
-                "wrap": true,
-                "color": "#666666",
-                "size": "sm",
-                "flex": 6
-              }
-            ]
-          },
-          {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "口頭禪",
-                "color": "#aaaaaa",
-                "size": "sm",
-                "flex": 2
-              },
-              {
-                "type": "text",
-                "text": "三缺一 要來嗎？",
-                "wrap": true,
-                "color": "#666666",
-                "size": "sm",
-                "flex": 6
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  "footer": {
-    "type": "box",
-    "layout": "horizontal",
-    "spacing": "sm",
-    "contents": [
-      {
-        "type": "button",
-        "style": "link",
-        "height": "sm",
-        "action": {
-          "type": "uri",
-          "label": "++",
-          "uri": "https://line.me/"
-        },
-        "flex": 5
-      },
-      {
-        "type": "button",
-        "style": "link",
-        "height": "sm",
-        "action": {
-          "type": "uri",
-          "label": "沒空",
-          "uri": "https://line.me/"
-        },
-        "flex": 5
-      }
-    ],
-    "flex": 0
-  }
-}
-                    ])
-                    .then(res => {
-                        if (res) { console.log("發送成功！"); liff.closeWindow(); }
-                    })
+    document.getElementById('sendBtn').addEventListener('click', () => {
+        if (!liff.isLoggedIn()) {
+            liff.login();
+        } else {
+            liff.shareTargetPicker([
+                {
+                    "type": "flex",
+                    "altText": "千慧姐姐發送了一張名片",
+                    "contents": {
+                        "type": "bubble",
+                        "hero": {
+                            "type": "image",
+                            "url": "https://nemo-iching.com/wp-content/uploads/2026/03/螢幕擷取畫面_2026-03-01_013519-removebg-preview.png",
+                            "size": "full",
+                            "aspectRatio": "20:13",
+                            "aspectMode": "fit"
+                        },
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                { "type": "text", "text": "千慧姐姐說你好", "weight": "bold", "size": "xl" },
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "margin": "lg",
+                                    "spacing": "sm",
+                                    "contents": [
+                                        {
+                                            "type": "box",
+                                            "layout": "baseline",
+                                            "spacing": "sm",
+                                            "contents": [
+                                                { "type": "text", "text": "聯絡時間", "color": "#aaaaaa", "size": "sm", "flex": 2 },
+                                                { "type": "text", "text": "週一至週五 9:00-18:00", "wrap": true, "color": "#666666", "size": "sm", "flex": 6 }
+                                            ]
+                                        },
+                                        {
+                                            "type": "box",
+                                            "layout": "baseline",
+                                            "spacing": "sm",
+                                            "contents": [
+                                                { "type": "text", "text": "口頭禪", "color": "#aaaaaa", "size": "sm", "flex": 2 },
+                                                { "type": "text", "text": "三缺一 要來嗎？", "wrap": true, "color": "#666666", "size": "sm", "flex": 6 }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "footer": {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "spacing": "sm",
+                            "contents": [
+                                { "type": "button", "style": "link", "height": "sm", "action": { "type": "uri", "label": "++", "uri": "https://line.me/" } },
+                                { "type": "button", "style": "link", "height": "sm", "action": { "type": "uri", "label": "沒空", "uri": "https://line.me/" } }
+                            ]
+                        }
+                    }
                 }
-            });
+            ])
+            .then(res => {
+                if (res) { liff.closeWindow(); }
+            }).catch(err => console.error(err));
         }
-        main();
+    });
+}
+main();
     </script>
 </body>
 </html>
