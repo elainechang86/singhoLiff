@@ -23,105 +23,92 @@
     <button id="sendBtn">發送名片給好友</button>
 
     <script>
-        async function main() {
-            try {
-                // 1. 初始化 LIFF
-                await liff.init({ liffId: "2005077517-HhZbspDL" });
+async function main() {
+    try {
+        // 更新為你提供的新 ID
+        await liff.init({ liffId: "2009605171-aZoIZYP7" });
 
-                // 2. 判斷是否登入
-                if (!liff.isLoggedIn()) {
-                    liff.login();
-                    return;
-                }
+        if (!liff.isLoggedIn()) {
+            liff.login();
+            return;
+        }
 
-                // 3. 綁定按鈕點擊事件
-                document.getElementById('sendBtn').addEventListener('click', () => {
-                    
-                    // 檢查功能是否可用
-                    if (!liff.isApiAvailable('shareTargetPicker')) {
-                        alert("錯誤：此帳號尚未開啟 shareTargetPicker 權限，請檢查後台設定。");
-                        return;
-                    }
+        document.getElementById('sendBtn').addEventListener('click', () => {
+            // 確保權限可用
+            if (!liff.isApiAvailable('shareTargetPicker')) {
+                alert("請至 LINE Developers 後台將 shareTargetPicker 權限設為 Allow！");
+                return;
+            }
 
-                    // 4. 執行發送
-                    liff.shareTargetPicker([
-                        {
-                            "type": "flex",
-                            "altText": "千慧姐姐發送了名片給你",
-                            "contents": {
-                                "type": "bubble",
-                                "hero": {
-                                    "type": "image",
-                                    "url": "https://nemo-iching.com/wp-content/uploads/2026/03/螢幕擷取畫面_2026-03-01_013519-removebg-preview.png",
-                                    "size": "full",
-                                    "aspectRatio": "20:13",
-                                    "aspectMode": "fit"
-                                },
-                                "body": {
+            liff.shareTargetPicker([
+                {
+                    "type": "flex",
+                    "altText": "千慧姐姐發送了名片給你",
+                    "contents": {
+                        "type": "bubble",
+                        "hero": {
+                            "type": "image",
+                            "url": "https://nemo-iching.com/wp-content/uploads/2026/03/螢幕擷取畫面_2026-03-01_013519-removebg-preview.png",
+                            "size": "full",
+                            "aspectRatio": "20:13",
+                            "aspectMode": "fit"
+                        },
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                { "type": "text", "text": "千慧姐姐說你好", "weight": "bold", "size": "xl" },
+                                {
                                     "type": "box",
                                     "layout": "vertical",
+                                    "margin": "lg",
+                                    "spacing": "sm",
                                     "contents": [
-                                        { "type": "text", "text": "千慧姐姐說你好", "weight": "bold", "size": "xl" },
                                         {
                                             "type": "box",
-                                            "layout": "vertical",
-                                            "margin": "lg",
+                                            "layout": "baseline",
                                             "spacing": "sm",
                                             "contents": [
-                                                {
-                                                    "type": "box",
-                                                    "layout": "baseline",
-                                                    "spacing": "sm",
-                                                    "contents": [
-                                                        { "type": "text", "text": "聯絡時間", "color": "#aaaaaa", "size": "sm", "flex": 2 },
-                                                        { "type": "text", "text": "週一至週五 9:00-18:00", "wrap": true, "color": "#666666", "size": "sm", "flex": 6 }
-                                                    ]
-                                                },
-                                                {
-                                                    "type": "box",
-                                                    "layout": "baseline",
-                                                    "spacing": "sm",
-                                                    "contents": [
-                                                        { "type": "text", "text": "口頭禪", "color": "#aaaaaa", "size": "sm", "flex": 2 },
-                                                        { "type": "text", "text": "三缺一 要來嗎？", "wrap": true, "color": "#666666", "size": "sm", "flex": 6 }
-                                                    ]
-                                                }
+                                                { "type": "text", "text": "聯絡時間", "color": "#aaaaaa", "size": "sm", "flex": 2 },
+                                                { "type": "text", "text": "週一至週五 9:00-18:00", "wrap": true, "color": "#666666", "size": "sm", "flex": 6 }
+                                            ]
+                                        },
+                                        {
+                                            "type": "box",
+                                            "layout": "baseline",
+                                            "spacing": "sm",
+                                            "contents": [
+                                                { "type": "text", "text": "口頭禪", "color": "#aaaaaa", "size": "sm", "flex": 2 },
+                                                { "type": "text", "text": "三缺一 要來嗎？", "wrap": true, "color": "#666666", "size": "sm", "flex": 6 }
                                             ]
                                         }
                                     ]
-                                },
-                                "footer": {
-                                    "type": "box",
-                                    "layout": "horizontal",
-                                    "spacing": "sm",
-                                    "contents": [
-                                        { "type": "button", "style": "link", "height": "sm", "action": { "type": "uri", "label": "++", "uri": "https://line.me/" } },
-                                        { "type": "button", "style": "link", "height": "sm", "action": { "type": "uri", "label": "沒空", "uri": "https://line.me/" } }
-                                    ]
                                 }
-                            }
+                            ]
+                        },
+                        "footer": {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "spacing": "sm",
+                            "contents": [
+                                { "type": "button", "style": "link", "height": "sm", "action": { "type": "uri", "label": "++", "uri": "https://line.me/" } },
+                                { "type": "button", "style": "link", "height": "sm", "action": { "type": "uri", "label": "沒空", "uri": "https://line.me/" } }
+                            ]
                         }
-                    ])
-                    .then(res => {
-                        if (res) {
-                            // res 為 true 代表使用者點了發送
-                            liff.closeWindow();
-                        } else {
-                            // 使用者取消發送
-                            console.log("使用者取消了發送");
-                        }
-                    })
-                    .catch(error => {
-                        alert("發送失敗原因: " + error.message);
-                    });
-                });
+                    }
+                }
+            ])
+            .then(res => {
+                if (res) { liff.closeWindow(); }
+            })
+            .catch(err => alert("發送失敗: " + err));
+        });
 
-            } catch (err) {
-                alert("LIFF 初始化失敗: " + err);
-            }
-        }
-
-        main();
+    } catch (err) {
+        alert("LIFF 初始化失敗，請檢查 ID 是否正確: " + err);
+    }
+}
+main();
     </script>
 </body>
 </html>
