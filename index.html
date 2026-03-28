@@ -47,14 +47,24 @@ async function main() {
     "type": "box",
     "layout": "horizontal",
     "contents": [
+     {
+  "type": "bubble",
+  "size": "giga",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
       {
         "type": "image",
-        "url": "https://nemo-iching.com/wp-content/uploads/2021/06/accountant-1.png",
-        "size": "md",
-        "aspectMode": "cover",
-        "aspectRatio": "1:1",
-        "gravity": "center",
-        "flex": 1
+        "url": "https://nemo-iching.com/wp-content/uploads/2026/03/螢幕擷取畫面-2026-03-28-203429.png",
+        "size": "full",
+        "aspectRatio": "2:3",
+        "position": "absolute",
+        "offsetTop": "0px",
+        "offsetBottom": "0px",
+        "offsetStart": "0px",
+        "offsetEnd": "0px",
+        "aspectMode": "cover"
       },
       {
         "type": "box",
@@ -62,79 +72,50 @@ async function main() {
         "contents": [
           {
             "type": "text",
-            "text": "王小明 (Ming)",
+            "text": "Candy 千慧",
             "weight": "bold",
-            "size": "lg",
-            "color": "#111111"
+            "color": "#ffffff",
+            "size": "xxl",
+            "align": "center"
           },
           {
             "type": "text",
-            "text": "資深軟體工程師",
+            "text": "超強麻將國手 | 財富吸引機",
+            "color": "#eeeeee",
             "size": "sm",
-            "color": "#666666"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "margin": "lg",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "baseline",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "公司",
-                    "color": "#aaaaaa",
-                    "size": "xs",
-                    "flex": 2
-                  },
-                  {
-                    "type": "text",
-                    "text": "科技創意有限公司",
-                    "wrap": true,
-                    "color": "#333333",
-                    "size": "xs",
-                    "flex": 5
-                  }
-                ]
-              }
-            ]
+            "align": "center",
+            "margin": "sm"
           }
         ],
-        "flex": 2,
-        "paddingStart": "20px"
-      }
-    ],
-    "paddingAll": "20px"
-  },
-  "footer": {
-    "type": "box",
-    "layout": "horizontal",
-    "spacing": "md",
-    "contents": [
-      {
-        "type": "button",
-        "style": "primary",
-        "color": "#06C755",
-        "action": {
-          "type": "uri",
-          "label": "撥打電話",
-          "uri": "tel:0912345678"
-        }
+        "position": "absolute",
+        "offsetBottom": "120px",
+        "offsetStart": "0px",
+        "offsetEnd": "0px"
       },
       {
-        "type": "button",
-        "style": "secondary",
-        "action": {
-          "type": "uri",
-          "label": "個人網站",
-          "uri": "https://line.me"
-        }
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "立即預約諮詢",
+              "uri": "https://singho1.com/"
+            },
+            "style": "primary",
+            "color": "#D4AF37",
+            "height": "sm"
+          }
+        ],
+        "position": "absolute",
+        "offsetBottom": "40px",
+        "offsetStart": "20px",
+        "offsetEnd": "20px"
       }
-    ]
+    ],
+    "paddingAll": "0px",
+    "height": "450px"
   }
 }
             ])
