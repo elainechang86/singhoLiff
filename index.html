@@ -42,61 +42,101 @@ async function main() {
 
             liff.shareTargetPicker([
                 {
-                    "type": "flex",
-                    "altText": "千慧姐姐發送了名片給你",
-                    "contents": {
-                        "type": "bubble",
-                        "hero": {
-                            "type": "image",
-                            "url": "https://nemo-iching.com/wp-content/uploads/2026/03/螢幕擷取畫面_2026-03-01_013519-removebg-preview.png",
-                            "size": "full",
-                            "aspectRatio": "20:13",
-                            "aspectMode": "fit"
-                        },
-                        "body": {
-                            "type": "box",
-                            "layout": "vertical",
-                            "contents": [
-                                { "type": "text", "text": "千慧姐姐說你好", "weight": "bold", "size": "xl" },
-                                {
-                                    "type": "box",
-                                    "layout": "vertical",
-                                    "margin": "lg",
-                                    "spacing": "sm",
-                                    "contents": [
-                                        {
-                                            "type": "box",
-                                            "layout": "baseline",
-                                            "spacing": "sm",
-                                            "contents": [
-                                                { "type": "text", "text": "聯絡時間", "color": "#aaaaaa", "size": "sm", "flex": 2 },
-                                                { "type": "text", "text": "週一至週五 9:00-18:00", "wrap": true, "color": "#666666", "size": "sm", "flex": 6 }
-                                            ]
-                                        },
-                                        {
-                                            "type": "box",
-                                            "layout": "baseline",
-                                            "spacing": "sm",
-                                            "contents": [
-                                                { "type": "text", "text": "口頭禪", "color": "#aaaaaa", "size": "sm", "flex": 2 },
-                                                { "type": "text", "text": "三缺一 要來嗎？", "wrap": true, "color": "#666666", "size": "sm", "flex": 6 }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        "footer": {
-                            "type": "box",
-                            "layout": "horizontal",
-                            "spacing": "sm",
-                            "contents": [
-                                { "type": "button", "style": "link", "height": "sm", "action": { "type": "uri", "label": "++", "uri": "https://line.me/" } },
-                                { "type": "button", "style": "link", "height": "sm", "action": { "type": "uri", "label": "沒空", "uri": "https://line.me/" } }
-                            ]
-                        }
-                    }
-                }
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "horizontal",
+    "contents": [
+      {
+        "type": "image",
+        "url": "https://nemo-iching.com/wp-content/uploads/2021/06/accountant-1.png",
+        "size": "md",
+        "aspectMode": "cover",
+        "aspectRatio": "1:1",
+        "gravity": "center",
+        "flex": 1
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "王小明 (Ming)",
+            "weight": "bold",
+            "size": "lg",
+            "color": "#111111"
+          },
+          {
+            "type": "text",
+            "text": "資深軟體工程師",
+            "size": "sm",
+            "color": "#666666"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "margin": "lg",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "baseline",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "公司",
+                    "color": "#aaaaaa",
+                    "size": "xs",
+                    "flex": 2
+                  },
+                  {
+                    "type": "text",
+                    "text": "科技創意有限公司",
+                    "wrap": true,
+                    "color": "#333333",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "flex": 2,
+        "paddingStart": "20px"
+      }
+    ],
+    "paddingAll": "20px"
+  },
+  "footer": {
+    "type": "box",
+    "layout": "horizontal",
+    "spacing": "md",
+    "contents": [
+      {
+        "type": "button",
+        "style": "primary",
+        "color": "#06C755",
+        "action": {
+          "type": "uri",
+          "label": "撥打電話",
+          "uri": "tel:0912345678"
+        }
+      },
+      {
+        "type": "button",
+        "style": "secondary",
+        "action": {
+          "type": "uri",
+          "label": "個人網站",
+          "uri": "https://line.me"
+        }
+      }
+    ]
+  }
+}
             ])
             .then(res => {
                 if (res) { liff.closeWindow(); }
