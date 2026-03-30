@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>千慧姐姐的電子名片</title>
+    <title>電子名片來囉</title>
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <style>
         body { font-family: sans-serif; text-align: center; padding: 50px 20px; background-color: #f4f4f4; }
@@ -42,78 +42,8 @@ async function main() {
             liff.shareTargetPicker([
                 {
                     "type": "flex",
-                    "altText": "Candy 千慧給您發送了一張電子名片",
-                    "contents": {
-                        "type": "bubble",
-                        "size": "giga",
-                        "body": {
-                            "type": "box",
-                            "layout": "vertical",
-                            "contents": [
-                                {
-                                    "type": "image",
-                                    "url": "https://nemo-iching.com/wp-content/uploads/2026/03/螢幕擷取畫面-2026-03-28-203429.png",
-                                    "size": "full",
-                                    "aspectRatio": "2:3",
-                                    "position": "absolute",
-                                    "offsetTop": "0px",
-                                    "offsetBottom": "0px",
-                                    "offsetStart": "0px",
-                                    "offsetEnd": "0px",
-                                    "aspectMode": "cover"
-                                },
-                                {
-                                    "type": "box",
-                                    "layout": "vertical",
-                                    "contents": [
-                                        {
-                                            "type": "text",
-                                            "text": "Candy 千慧",
-                                            "weight": "bold",
-                                            "color": "#ffffff",
-                                            "size": "xxl",
-                                            "align": "center"
-                                        },
-                                        {
-                                            "type": "text",
-                                            "text": "超強麻將國手 | 財富吸引機",
-                                            "color": "#eeeeee",
-                                            "size": "sm",
-                                            "align": "center",
-                                            "margin": "sm"
-                                        }
-                                    ],
-                                    "position": "absolute",
-                                    "offsetBottom": "120px",
-                                    "offsetStart": "0px",
-                                    "offsetEnd": "0px"
-                                },
-                                {
-                                    "type": "box",
-                                    "layout": "vertical",
-                                    "contents": [
-                                        {
-                                            "type": "button",
-                                            "action": {
-                                                "type": "uri",
-                                                "label": "立即預約諮詢",
-                                                "uri": "https://singho1.com/"
-                                            },
-                                            "style": "primary",
-                                            "color": "#D4AF37",
-                                            "height": "sm"
-                                        }
-                                    ],
-                                    "position": "absolute",
-                                    "offsetBottom": "40px",
-                                    "offsetStart": "20px",
-                                    "offsetEnd": "20px"
-                                }
-                            ],
-                            "paddingAll": "0px",
-                            "height": "450px"
-                        }
-                    }
+                    "altText": "嗨！我發送了一張電子名片",
+                    "contents": https://nemo-iching.com/
                 }
             ])
             .then(res => {
