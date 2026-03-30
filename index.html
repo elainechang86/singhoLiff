@@ -1,65 +1,200 @@
+
 <!DOCTYPE html>
+
 <html lang="zh-TW">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>電子名片來囉</title>
+
+    <title>千慧姐姐的電子名片</title>
+
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
     <style>
+
         body { font-family: sans-serif; text-align: center; padding: 50px 20px; background-color: #f4f4f4; }
+
         #sendBtn { 
+
             padding: 20px 40px; font-size: 20px; color: white; 
+
             background-color: #00B900; border: none; border-radius: 10px; 
+
             cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
         }
+
         #sendBtn:active { background-color: #009900; transform: translateY(2px); }
+
     </style>
+
 </head>
+
 <body>
 
+
+
     <h2>我的電子名片傳送器</h2>
+
     <p>點擊下方按鈕，選擇好友發送名片</p>
+
     
+
     <button id="sendBtn">發送名片給好友</button>
 
+
+
     <script>
+
 async function main() {
+
     try {
+
         await liff.init({ liffId: "2009605171-aZoIZYP7" });
 
+
+
         if (!liff.isLoggedIn()) {
+
             liff.login();
+
             return;
+
         }
 
+
+
         document.getElementById('sendBtn').addEventListener('click', () => {
+
             if (!liff.isApiAvailable('shareTargetPicker')) {
+
                 alert("請至 LINE Developers 後台將 shareTargetPicker 權限設為 Allow！");
+
                 return;
+
             }
 
+
+
             // 修正後的傳送格式
+
             liff.shareTargetPicker([
+
                 {
+
                     "type": "flex",
-                    "altText": "嗨！我發送了一張電子名片",
-                    "contents": https://nemo-iching.com/
+
+                    "altText": "Candy 千慧給您發送了一張電子名片",
+
+                    "contents": {
+  "type": "bubble",
+  "size": "mega",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "image",
+        "url": "https://nemo-iching.com/wp-content/uploads/2026/03/1434974_pingu_714206.jpg",
+        "size": "full",
+        "aspectRatio": "1:2",
+        "position": "absolute",
+        "offsetTop": "0px",
+        "offsetBottom": "0px",
+        "offsetStart": "0px",
+        "offsetEnd": "0px",
+        "aspectMode": "cover"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "我的刀盾運動員",
+            "weight": "bold",
+            "color": "#000000",
+            "size": "xxl",
+            "align": "center"
+          },
+          {
+            "type": "text",
+            "text": "51121 51121",
+            "color": "#eeeeee",
+            "size": "sm",
+            "align": "center",
+            "margin": "sm"
+          }
+        ],
+        "position": "absolute",
+        "offsetStart": "0px",
+        "offsetEnd": "0px",
+        "offsetTop": "80px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "認養小豬豬",
+              "uri": "https://nemo-iching.com/"
+            },
+            "style": "primary",
+            "color": "#D4AF37",
+            "height": "sm"
+          }
+        ],
+        "position": "absolute",
+        "offsetBottom": "40px",
+        "offsetStart": "20px",
+        "offsetEnd": "20px"
+      }
+    ],
+    "paddingAll": "0px",
+    "height": "450px"
+  }
+}
+
                 }
+
             ])
+
             .then(res => {
+
                 if (res) { 
+
                     console.log("傳送成功");
+
                     liff.closeWindow(); 
+
                 }
+
             })
+
             .catch(err => alert("發送失敗: " + err));
+
         });
 
+
+
     } catch (err) {
+
         alert("LIFF 初始化失敗: " + err);
+
     }
+
 }
+
 main();
+
     </script>
+
 </body>
+
 </html>
