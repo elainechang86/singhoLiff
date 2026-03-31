@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nemo老師電子名片</title>
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px 20px; background-color: #f4f4f4; }
+        #sendBtn { 
+            padding: 20px 40px; font-size: 20px; color: white; 
+            background-color: #00B900; border: none; border-radius: 10px; 
+            cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        #sendBtn:active { background-color: #009900; transform: translateY(2px); }
+    </style>
+</head>
+<body>
+
+    <h2>電子名片傳送器</h2>
+    <p>點擊下方按鈕後，選擇好友發送名片</p>
+    
+    <button id="sendBtn">發送名片給好友</button>
+
+    <script>
+async function main() {
+    try {
+        await liff.init({ liffId: "2009605171-aZoIZYP7" });
+
+        if (!liff.isLoggedIn()) {
+            liff.login();
+            return;
+        }
+
+        document.getElementById('sendBtn').addEventListener('click', () => {
+            if (!liff.isApiAvailable('shareTargetPicker')) {
+                alert("請至 LINE Developers 後台將 shareTargetPicker 權限設為 Allow！");
+                return;
+            }
+
+            // 修正後的傳送格式
+            liff.shareTargetPicker([
+                {
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "image",
+        "url": "https://nemo-iching.com/wp-content/uploads/2026/04/Nemo-老師-IG圖-1.jpg",
+        "size": "full",
+        "aspectRatio": "4:5",
+        "aspectMode": "cover",
+        "action": {
+          "type": "uri",
+          "uri": "https://nemo-iching.com/"
+        }
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "margin": "md",
+        "contents": [
+          {
+            "type": "button",
+            "style": "primary",
+            "height": "sm",
+            "color": "#1DB446",
+            "action": {
+              "type": "uri",
+              "label": "Nemo 易經官方網站",
+              "uri": "https://nemo-iching.com/"
+            }
+          },
+          {
+            "type": "button",
+            "style": "secondary",
+            "height": "sm",
+            "action": {
+              "type": "uri",
+              "label": "免費線上占卜工具",
+              "uri": "https://nemo-iching.com/why-choose-me/"
+            }
+          }
+        ],
+        "flex": 0
+      }
+    },
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "image",
+        "url": "https://nemo-iching.com/wp-content/uploads/2026/03/14.jpg",
+        "size": "full",
+        "aspectRatio": "4:5",
+        "aspectMode": "cover",
+        "action": {
+          "type": "uri",
+          "uri": "https://nemo-iching.com/lesson/"
+        }
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "margin": "md",
+        "contents": [
+          {
+            "type": "button",
+            "style": "primary",
+            "height": "sm",
+            "color": "#8B4513",
+            "action": {
+              "type": "uri",
+              "label": "零基礎易經班資訊",
+              "uri": "https://nemo-iching.com/lesson/"
+            }
+          },
+          {
+            "type": "button",
+            "style": "primary",
+            "height": "sm",
+            "color": "#1DB446",
+            "action": {
+              "type": "uri",
+              "label": "私訊了解更多內容",
+              "uri": "https://lin.ee/CaYOvdz"
+            }
+          }
+        ],
+        "flex": 0
+      }
+    }
+  ]
+}
+            ])
+            .then(res => {
+                if (res) { 
+                    console.log("傳送成功");
+                    liff.closeWindow(); 
+                }
+            })
+            .catch(err => alert("發送失敗: " + err));
+        });
+
+    } catch (err) {
+        alert("LIFF 初始化失敗: " + err);
+    }
+}
+main();
+    </script>
+</body>
+</html>
