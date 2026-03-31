@@ -44,75 +44,119 @@ async function main() {
                     "type": "flex",
                     "altText": "Nemo 老師分享了易經資訊給您", // 在聊天列表顯示的文字
                     "contents": {
-                        "type": "carousel",
-                        "contents": [
-                            {
-                                "type": "bubble",
-                                "hero": {
-                                    "type": "image",
-                                    "url": "https://nemo-iching.com/wp-content/uploads/2026/04/Nemo-老師-IG圖-1.jpg",
-                                    "size": "full",
-                                    "aspectRatio": "4:5",
-                                    "aspectMode": "cover",
-                                    "action": { "type": "uri", "uri": "https://nemo-iching.com/" }
-                                },
-                                "footer": {
-                                    "type": "box",
-                                    "layout": "vertical",
-                                    "spacing": "sm",
-                                    "margin": "md",
-                                    "contents": [
-                                        {
-                                            "type": "button",
-                                            "style": "primary",
-                                            "height": "sm",
-                                            "color": "#1DB446",
-                                            "action": { "type": "uri", "label": "Nemo 易經官方網站", "uri": "https://nemo-iching.com/" }
-                                        },
-                                        {
-                                            "type": "button",
-                                            "style": "secondary",
-                                            "height": "sm",
-                                            "action": { "type": "uri", "label": "免費線上占卜工具", "uri": "https://nemo-iching.com/why-choose-me/" }
-                                        }
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "bubble",
-                                "hero": {
-                                    "type": "image",
-                                    "url": "https://nemo-iching.com/wp-content/uploads/2026/03/14.jpg",
-                                    "size": "full",
-                                    "aspectRatio": "4:5",
-                                    "aspectMode": "cover",
-                                    "action": { "type": "uri", "uri": "https://nemo-iching.com/lesson/" }
-                                },
-                                "footer": {
-                                    "type": "box",
-                                    "layout": "vertical",
-                                    "spacing": "sm",
-                                    "margin": "md",
-                                    "contents": [
-                                        {
-                                            "type": "button",
-                                            "style": "primary",
-                                            "height": "sm",
-                                            "color": "#8B4513",
-                                            "action": { "type": "uri", "label": "零基礎易經班資訊", "uri": "https://nemo-iching.com/lesson/" }
-                                        },
-                                        {
-                                            "type": "button",
-                                            "style": "primary",
-                                            "height": "sm",
-                                            "color": "#1DB446",
-                                            "action": { "type": "uri", "label": "私訊了解更多內容", "uri": "https://lin.ee/CaYOvdz" }
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
-                    }
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "image",
+        "url": "https://nemo-iching.com/wp-content/uploads/2026/04/Nemo-老師-IG圖-1.jpg",
+        "size": "full",
+        "aspectRatio": "4:5",
+        "aspectMode": "cover",
+        "action": {
+          "type": "uri",
+          "uri": "https://nemo-iching.com/"
+        }
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "margin": "md",
+        "contents": [
+          {
+            "type": "button",
+            "style": "primary",
+            "height": "sm",
+            "color": "#1DB446",
+            "action": {
+              "type": "uri",
+              "label": "Nemo 易經官方網站",
+              "uri": "https://nemo-iching.com/"
+            }
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "button",
+                "style": "secondary",
+                "height": "sm",
+                "action": {
+                  "type": "uri",
+                  "label": "免費線上占卜",
+                  "uri": "https://nemo-iching.com/why-choose-me/"
+                },
+                "flex": 2
+              },
+              {
+                "type": "button",
+                "style": "primary",
+                "height": "sm",
+                "color": "#4267B2",
+                "action": {
+                  "type": "uri",
+                  "label": "分享",
+                  "uri": "https://liff.line.me/2009605171-JL2Cs2If"
+                },
+                "flex": 1
+              }
+            ]
+          }
+        ],
+        "flex": 0
+      }
+    },
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "image",
+        "url": "https://nemo-iching.com/wp-content/uploads/2026/03/14.jpg",
+        "size": "full",
+        "aspectRatio": "4:5",
+        "aspectMode": "cover",
+        "action": {
+          "type": "uri",
+          "uri": "https://nemo-iching.com/lesson/"
+        }
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "margin": "md",
+        "contents": [
+          {
+            "type": "button",
+            "style": "primary",
+            "height": "sm",
+            "color": "#8B4513",
+            "action": {
+              "type": "uri",
+              "label": "零基礎易經班資訊",
+              "uri": "https://nemo-iching.com/lesson/"
+            }
+          },
+          {
+            "type": "button",
+            "style": "primary",
+            "height": "sm",
+            "color": "#1DB446",
+            "action": {
+              "type": "uri",
+              "label": "私訊了解更多內容",
+              "uri": "https://lin.ee/CaYOvdz"
+            }
+          }
+        ],
+        "flex": 0
+      }
+    }
+  ]
+}
                 }
             ])
             .then(res => {
